@@ -6,18 +6,31 @@
 // @match        https://old.reddit.com/*
 // @grant        none
 // ==/UserScript==
+//#region src/Router.ts
+var Router = class {
+	constructor() {}
+	get_page_type() {
+		const path = location.pathname;
+		if (path == "/" || path == "") return "home";
+		if (path.startsWith("/r/") && !path.includes("/comments")) return "subreddit";
+		if (path.includes("/comments")) return "post";
+		if (path.includes("/search")) return "search";
+		return "other";
+	}
+};
+//#endregion
 //#region src/styles.ts
 var styles = `
-    .side {
+    body[data-page="home"] .side {
         float: none;
     }
 
-    .thing .tagline {
+    body[data-page="home"] .thing .tagline {
         font-size: 16px;
         margin-bottom: 12px;
     }
 
-    .thing li.first {
+    body[data-page="home"] .thing li.first {
         font-size: 16px;
     }
 `;
@@ -25,6 +38,8 @@ var styles = `
 //#region src/PageSetup.ts
 var PageSetup = class {
 	constructor() {
+		const page_type = new Router().get_page_type();
+		document.body.dataset.page = page_type;
 		this.set_viewport_tag();
 		this.set_sidepanel();
 		this.set_css();

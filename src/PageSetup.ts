@@ -1,9 +1,15 @@
+import Router from "./Router";
 import { styles } from "./styles";
 
 export default class PageSetup {
 
     constructor() {
-    
+
+        // get page type
+        const router = new Router;
+        const page_type = router.get_page_type();
+        document.body.dataset.page = page_type;
+
         this.set_viewport_tag();
         this.set_sidepanel();
         this.set_css();
