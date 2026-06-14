@@ -10,11 +10,11 @@ export default class PageSetup {
         const page_type = router.get_page_type();
         document.body.dataset.page = page_type;
 
-        this.set_viewport_tag();
         this.set_css();
 
         if (page_type == 'home') {
             this.set_sidepanel();
+            this.set_viewport_tag();
         }
         
     }
