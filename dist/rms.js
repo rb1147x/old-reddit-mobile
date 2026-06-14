@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Reddit Mobile Test
 // @namespace    https://github.com/yourname
-// @version      0.0.1-cb8c8ad
+// @version      0.0.1-f1f13d0
 // @description  Modifies old.reddit.com mobile UI
 // @match        https://old.reddit.com/*
 // @grant        none
@@ -54,6 +54,7 @@ var PageSetup = class {
 			viewport.name = "viewport";
 			document.head.appendChild(viewport);
 		}
+		viewport.content = "width=device-width, initial-scale=1";
 	}
 	set_sidepanel() {
 		let side_panel_el = document.querySelector(".side");

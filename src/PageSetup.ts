@@ -33,7 +33,7 @@ export default class PageSetup {
         document.head.appendChild(viewport);
         }
 
-        //viewport.content = "width=device-width, initial-scale=1";
+        viewport.content = "width=device-width, initial-scale=1";
     }
 
     // set side panel
