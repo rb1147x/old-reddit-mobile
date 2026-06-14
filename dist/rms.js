@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Reddit Mobile Test
 // @namespace    https://github.com/yourname
-// @version      0.0.1-e4a3629
+// @version      0.0.1-45a706c
 // @description  Modifies old.reddit.com mobile UI
 // @match        https://old.reddit.com/*
 // @grant        none
@@ -44,6 +44,7 @@ var PageSetup = class {
 		if (page_type == "home") {
 			this.set_sidepanel();
 			this.set_viewport_tag();
+			this.modify_search();
 		}
 	}
 	set_viewport_tag() {
@@ -64,6 +65,21 @@ var PageSetup = class {
 		const style = document.createElement("style");
 		style.textContent = styles;
 		document.head.append(style);
+	}
+	modify_search() {
+		const form = document.querySelector("form#search");
+		if (!form) return;
+		form.addEventListener("submit", (e) => {
+			e.preventDefault();
+			const input = form.querySelector("input[name='q']");
+			if (!input) return;
+			const url = new URL("https://old.reddit.com/search");
+			url.searchParams.set("q", input.value);
+			url.searchParams.set("include_over_18", "on");
+			url.searchParams.set("sort", "relevance");
+			url.searchParams.set("t", "all");
+			window.location.href = url.toString();
+		});
 	}
 };
 //#endregion

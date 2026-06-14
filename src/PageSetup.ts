@@ -15,6 +15,7 @@ export default class PageSetup {
         if (page_type == 'home') {
             this.set_sidepanel();
             this.set_viewport_tag();
+            this.modify_search();
         }
         
     }
@@ -55,6 +56,28 @@ export default class PageSetup {
         const style = document.createElement('style');
         style.textContent = styles;
         document.head.append(style);
+    }
+
+    // modify search form
+    modify_search() {
+        const form = document.querySelector('form#search') as HTMLElement;
+        if (!form) return;
+
+        form.addEventListener("submit", (e) => {
+            e.preventDefault();
+
+            const input = form.querySelector("input[name='q']") as HTMLInputElement;
+            if (!input) return;
+
+            const url = new URL("https://old.reddit.com/search");
+            url.searchParams.set("q", input.value);
+            url.searchParams.set("include_over_18", "on");
+            url.searchParams.set("sort", "relevance");
+            url.searchParams.set("t", "all");
+
+            window.location.href = url.toString();
+
+        });
     }
 
 }
