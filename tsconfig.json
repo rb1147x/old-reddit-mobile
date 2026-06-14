@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+        "rootDir": "./src",
+        "esModuleInterop": true,
+        "target": "ESNext",
+        "moduleResolution": "NodeNext",
+        "module": "NodeNext",
+        "noEmit": true,
+        "diagnostics": true,
+        "types": ["vite/client"],
+    },
+    "include": [
+        "src/**/*"
+    ],
+    
+}
