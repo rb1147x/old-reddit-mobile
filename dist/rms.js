@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Reddit Mobile Test
 // @namespace    https://github.com/yourname
-// @version      0.0.2
+// @version      0.0.1-3e41b59
 // @description  Modifies old.reddit.com mobile UI
 // @match        https://old.reddit.com/*
 // @grant        none
@@ -41,8 +41,8 @@ var PageSetup = class {
 		const page_type = new Router().get_page_type();
 		document.body.dataset.page = page_type;
 		this.set_viewport_tag();
-		this.set_sidepanel();
 		this.set_css();
+		if (page_type == "home") this.set_sidepanel();
 	}
 	set_viewport_tag() {
 		let viewport = document.querySelector("meta[name=\"viewport\"]");

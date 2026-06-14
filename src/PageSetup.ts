@@ -11,8 +11,12 @@ export default class PageSetup {
         document.body.dataset.page = page_type;
 
         this.set_viewport_tag();
-        this.set_sidepanel();
         this.set_css();
+
+        if (page_type == 'home') {
+            this.set_sidepanel();
+        }
+        
     }
 
     // set viewport tag
