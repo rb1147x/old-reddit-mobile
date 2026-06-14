@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Reddit Mobile Test
 // @namespace    https://github.com/yourname
-// @version      0.0.1
+// @version      0.0.2
 // @description  Modifies old.reddit.com mobile UI
 // @match        https://old.reddit.com/*
 // @grant        none
