@@ -47,6 +47,7 @@ export default defineConfig({
           // @description  Modifies old.reddit.com mobile UI
           // @match        https://old.reddit.com/*
           // @grant        none
+          // @run-at       document-end
           // ==/UserScript==
           `;
         },
