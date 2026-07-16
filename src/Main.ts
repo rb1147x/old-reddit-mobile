@@ -2,22 +2,30 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import { Parser } from './reddit/Parser.ts';
 import css from "./styles/global.css?inline";
+import { Page } from './reddit/Page.ts';
+import type { RedditData } from './reddit/RedditData.ts';
 
 export class Main {
 
+    static instance:Main = new Main();
 
-    constructor() {
+    /* constructor() {
         this.init();
-    }
+    } */
 
     init() {
+
+        // set page type first
+        Page.instance.set_page_type();
+        //console.log(Page.page_type);
+
         this.setup_global_css();
 
         this.hide_reddit();
 
         const root = this.setup_root();
 
-        const data = Parser.parse_reddit();
+        const data = Parser.parse();
 
         this.mount_vue(root, data);
     }
@@ -52,7 +60,7 @@ export class Main {
         }
     }
 
-    mount_vue(root: HTMLElement, data?: any) {
+    mount_vue(root: HTMLElement, data: RedditData) {
         
         createApp(App, {
             data
@@ -60,4 +68,4 @@ export class Main {
     }
 }
 
-new Main();
+Main.instance.init();
