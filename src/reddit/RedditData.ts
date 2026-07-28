@@ -1,4 +1,6 @@
-import { PageType, type RedditComment, type RedditPost, type Subreddit } from "@/DataTypes";
+import { PageType, type Subreddit } from "@/DataTypes";
+import type { RedditPost } from "./RedditPost";
+import type { RedditComment } from "./RedditComment";
 
 export class RedditData {
     page_type = PageType.Other;

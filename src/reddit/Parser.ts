@@ -1,6 +1,7 @@
-import { PageType, type RedditPost } from "@/DataTypes";
+import { PageType } from "@/DataTypes";
 import { Page } from "./Page";
 import { RedditData } from "./RedditData";
+import { RedditPost } from "./RedditPost";
 
 export class Parser {
 
@@ -35,7 +36,7 @@ export class Parser {
 
     }
 
-    static parse_home() {
+    static parse_home():RedditData {
 
         const data = new RedditData();
         data.page_type = PageType.Home;
@@ -50,16 +51,7 @@ export class Parser {
             /* const title = thing.querySelector('a.title');
             console.log(title?.textContent); */
 
-            const post: RedditPost = {
-                id: thing.id,
-                title: thing.querySelector('a.title')?.textContent?.trim() ?? '',
-                author: thing.querySelector('.author')?.textContent?.trim() ?? '',
-                subreddit: thing.dataset.subreddit ?? '',
-                score:Number(thing.querySelector('.score.unvoted')?.textContent ?? 0),
-                commentCount: 0,
-                permalink: '',
-                element: thing as HTMLElement
-            };
+            const post:RedditPost = new RedditPost(thing);
 
             posts.push(post);
 

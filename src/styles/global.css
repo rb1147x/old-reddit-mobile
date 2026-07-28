@@ -1,3 +1,36 @@
+ #rms-root {
+    all: initial;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999999;
+    background: red;
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+#rms-root *,
+#rms-root *::before,
+#rms-root *::after {
+    box-sizing: border-box;
+}
+
+:where(#rms-root button) {
+    all: unset;
+}
+
+shreddit-app {
+    margin-top: 44px;
+}
+
+.rms-body {
+    background-color: #1E2835;
+    font-size: 16px;
+    color: white;
+}
+
 .rms-hidden {
     display: none !important;
 }

@@ -5,6 +5,7 @@ import vue from '@vitejs/plugin-vue'
 import vueDevTools from 'vite-plugin-vue-devtools'
 import fs from "fs";
 import { execSync } from 'node:child_process';
+import cssInjectedByJsPlugin from 'vite-plugin-css-injected-by-js';
 
 function getVersion() {
   const pkg = JSON.parse(fs.readFileSync("./package.json", "utf-8"));
@@ -25,6 +26,7 @@ export default defineConfig({
   plugins: [
     vue(),
     vueDevTools(),
+    cssInjectedByJsPlugin(),
   ],
   resolve: {
     alias: {
@@ -44,8 +46,8 @@ export default defineConfig({
           // @name         Reddit Mobile Test
           // @namespace    https://github.com/yourname
           // @version      ${version}
-          // @description  Modifies old.reddit.com mobile UI
-          // @match        https://old.reddit.com/*
+          // @description  Modifies reddit.com mobile UI
+          // @match        https://www.reddit.com/*
           // @grant        none
           // @run-at       document-end
           // ==/UserScript==
