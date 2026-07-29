@@ -5,6 +5,7 @@ import css from "./styles/global.css?inline";
 import { Page } from './reddit/Page.ts';
 import type { RedditData } from './reddit/RedditData.ts';
 import App2 from './App2.vue';
+import { RedditUtils } from './reddit/RedditUtils.ts';
 
 export class Main {
 
@@ -22,16 +23,15 @@ export class Main {
 
         this.setup_global_css();
 
-        /* this.hide_reddit();
+        //this.hide_reddit();
 
         const root = this.setup_root();
 
-        const data = Parser.parse();
+        //const data = Parser.parse();
+        //const subreddit = Parser.get_url();
 
-        this.mount_vue(root, data); */
-
-        const root = this.setup_root();
         this.mount_vue(root);
+
     }
 
     setup_global_css() {
@@ -64,10 +64,10 @@ export class Main {
         }
     }
 
-    mount_vue(root: HTMLElement, data?: RedditData) {
+    mount_vue(root: HTMLElement, subreddit?: string | null) {
         
         createApp(App2, {
-            data
+            subreddit
         }).mount(root);
     }
 

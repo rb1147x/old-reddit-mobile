@@ -10,7 +10,6 @@ import TopToolbar from './components/TopToolbar.vue';
 </script>
 
 <template>
-  <TopToolbar></TopToolbar>
   <h1>Is this working?</h1>
   <Thing v-for="post in props.data.posts" :key="post.id" :post="post"></Thing>
 </template>

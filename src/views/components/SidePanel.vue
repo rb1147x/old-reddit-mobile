@@ -1,9 +1,12 @@
 <script setup lang="ts">
+import type { Favorite } from '@/services/FavoritesService.ts';
 import { RedditData } from '../../reddit/RedditData';
+import FavoriteButton from './FavoriteButton.vue';
 
 const props = defineProps<{
   //data:RedditData
   open: boolean;
+  favorites: Favorite[];
 }>();
 
 const emit = defineEmits<{
@@ -18,7 +21,15 @@ const emit = defineEmits<{
     <div class="underlay" @click="emit('close')"></div>
 
     <aside class="side-panel">
-        menu items here
+            
+      <ul>
+        <li>
+          <a href="/">Home</a>
+        </li>
+        <li v-for="favorite in favorites" :key="favorite.subreddit">
+          <a :href="`/r/${favorite.subreddit}`">{{ favorite.title }}</a>
+        </li>
+      </ul>
     </aside>
 
   </div>
@@ -48,6 +59,16 @@ const emit = defineEmits<{
   height: 100vh;
 
   background: white;
+}
+
+ul {
+    gap: 12px;
+    display: flex;
+    flex-direction: column;
+    font-size: 16px;
+    font-family: sans-serif;
+    list-style-type: none;
+    padding-left: 14px;
 }
 
 </style>

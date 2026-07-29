@@ -5,7 +5,3 @@ export enum  PageType {
     Post = 'Post',
     Other = 'Other'
 }
-
-export interface Subreddit {
-
-}
