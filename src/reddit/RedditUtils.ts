@@ -50,6 +50,6 @@ export class RedditUtils {
         const container = document.querySelector('reddit-search-small');
         const el = container?.shadowRoot?.children[1] as HTMLElement;
 
-        el.style.marginTop = '44px';
+        el.style.marginTop = '63px';
     }
 }

@@ -2,7 +2,7 @@
 // ==UserScript==
 // @name         Reddit Mobile Test
 // @namespace    https://github.com/yourname
-// @version      0.0.1-7e6d863
+// @version      0.0.1-b2d7474
 // @description  Modifies reddit.com mobile UI
 // @match        https://www.reddit.com/*
 // @grant        none
@@ -4340,7 +4340,7 @@ var Page = class Page {
 };
 //#endregion
 //#region src/styles/global.css?inline
-var global_default = " #rms-root {\r\n    all: initial;\r\n    position: fixed;\r\n    top: 0;\r\n    left: 0;\r\n    right: 0;\r\n    z-index: 999999;\r\n    background: red;\r\n    width: 100%;\r\n    height: auto;\r\n    display: block;\r\n}\r\n\r\n#rms-root *,\r\n#rms-root *::before,\r\n#rms-root *::after {\r\n    box-sizing: border-box;\r\n}\r\n\r\n:where(#rms-root button) {\r\n    all: unset;\r\n}\r\n\r\nshreddit-app {\r\n    margin-top: 44px;\r\n}\r\n\r\n.rms-body {\r\n    background-color: #1E2835;\r\n    font-size: 16px;\r\n    color: white;\r\n}\r\n\r\n.rms-hidden {\r\n    display: none !important;\r\n}";
+var global_default = " #rms-root {\r\n    all: initial;\r\n    position: fixed;\r\n    top: 0;\r\n    left: 0;\r\n    right: 0;\r\n    z-index: 999999;\r\n    background: red;\r\n    width: 100%;\r\n    height: auto;\r\n    display: block;\r\n}\r\n\r\n#rms-root *,\r\n#rms-root *::before,\r\n#rms-root *::after {\r\n    box-sizing: border-box;\r\n}\r\n\r\n:where(#rms-root button) {\r\n    all: unset;\r\n}\r\n\r\nshreddit-app {\r\n    margin-top: 63px;\r\n}\r\n\r\n.rms-body {\r\n    background-color: #1E2835;\r\n    font-size: 16px;\r\n    color: white;\r\n}\r\n\r\n.rms-hidden {\r\n    display: none !important;\r\n}";
 //#endregion
 //#region src/views/components/SidePanel.vue?vue&type=script&setup=true&lang.ts
 var _hoisted_1 = {
@@ -4431,7 +4431,7 @@ var RedditUtils = class {
 	}
 	static fix_reddit_search_location() {
 		const el = document.querySelector("reddit-search-small")?.shadowRoot?.children[1];
-		el.style.marginTop = "44px";
+		el.style.marginTop = "63px";
 	}
 };
 //#endregion
