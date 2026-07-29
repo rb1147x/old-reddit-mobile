@@ -45,4 +45,11 @@ export class RedditUtils {
             clearInterval(interval);
         };
     }
+
+    static fix_reddit_search_location() {
+        const container = document.querySelector('reddit-search-small');
+        const el = container?.shadowRoot?.children[1] as HTMLElement;
+
+        el.style.marginTop = '44px';
+    }
 }

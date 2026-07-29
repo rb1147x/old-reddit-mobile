@@ -1,8 +1,8 @@
-(function() {	try {		if (typeof document != "undefined") {			var elementStyle = document.createElement("style");			elementStyle.appendChild(document.createTextNode(".favorite-button[data-v-35467241] {\r\n        color: gold;\n}\r\n\n.toolbar-wrapper[data-v-14136e48] {\r\n  display: flex;\r\n  gap: 16px;\r\n  padding: 8px;\r\n  background-color: black;\r\n  color: white;\r\n  font-size: 16px;\r\n  font-family: sans-serif;\n}\n.menu[data-v-14136e48] {\r\n  padding: 4px;\r\n  border-radius: 4px;\r\n  border: 1px solid white;\n}\r\n\n.side-panel-container[data-v-b48c7e5b] {\r\n  position: fixed;\r\n  inset: 0;\r\n  z-index: 9999;\r\n  top: 39px;\n}\n.underlay[data-v-b48c7e5b] {\r\n  position: absolute;\r\n  inset: 0;\r\n  background: rgba(0, 0, 0, .75);\n}\n.side-panel[data-v-b48c7e5b] {\r\n  position: absolute;\r\n  top: 0;\r\n  left: 0;\r\n\r\n  width: 75vw;\r\n  height: 100vh;\r\n\r\n  background: white;\n}\nul[data-v-b48c7e5b] {\r\n    gap: 12px;\r\n    display: flex;\r\n    flex-direction: column;\r\n    font-size: 16px;\r\n    font-family: sans-serif;\r\n    list-style-type: none;\r\n    padding-left: 14px;\n}"));			document.head.appendChild(elementStyle);		}	} catch (e) {		console.error("vite-plugin-css-injected-by-js", e);	}})();
+(function() {	try {		if (typeof document != "undefined") {			var elementStyle = document.createElement("style");			elementStyle.appendChild(document.createTextNode(".favorite-button[data-v-35467241] {\r\n        color: gold;\n}\r\n\n.toolbar-wrapper[data-v-be8942db] {\r\n  display: flex;\r\n  gap: 16px;\r\n  padding: 16px;\r\n  background-color: black;\r\n  color: white;\r\n  font-size: 16px;\r\n  font-family: sans-serif;\n}\n.menu[data-v-be8942db] {\r\n  padding: 4px;\r\n  border-radius: 4px;\r\n  border: 1px solid white;\n}\r\n\n.side-panel-container[data-v-b48c7e5b] {\r\n  position: fixed;\r\n  inset: 0;\r\n  z-index: 9999;\r\n  top: 39px;\n}\n.underlay[data-v-b48c7e5b] {\r\n  position: absolute;\r\n  inset: 0;\r\n  background: rgba(0, 0, 0, .75);\n}\n.side-panel[data-v-b48c7e5b] {\r\n  position: absolute;\r\n  top: 0;\r\n  left: 0;\r\n\r\n  width: 75vw;\r\n  height: 100vh;\r\n\r\n  background: white;\n}\nul[data-v-b48c7e5b] {\r\n    gap: 12px;\r\n    display: flex;\r\n    flex-direction: column;\r\n    font-size: 16px;\r\n    font-family: sans-serif;\r\n    list-style-type: none;\r\n    padding-left: 14px;\n}"));			document.head.appendChild(elementStyle);		}	} catch (e) {		console.error("vite-plugin-css-injected-by-js", e);	}})();
 // ==UserScript==
 // @name         Reddit Mobile Test
 // @namespace    https://github.com/yourname
-// @version      0.0.1-2da348e
+// @version      0.0.1-7e6d863
 // @description  Modifies reddit.com mobile UI
 // @match        https://www.reddit.com/*
 // @grant        none
@@ -4323,7 +4323,7 @@ var TopToolbar_default = /*#__PURE__*/ _plugin_vue_export_helper_default(/* @__P
 			}, null, 8, ["favorited"])]);
 		};
 	}
-}), [["__scopeId", "data-v-14136e48"]]);
+}), [["__scopeId", "data-v-be8942db"]]);
 //#endregion
 //#region src/reddit/Page.ts
 var Page = class Page {
@@ -4429,6 +4429,10 @@ var RedditUtils = class {
 			clearInterval(interval);
 		};
 	}
+	static fix_reddit_search_location() {
+		const el = document.querySelector("reddit-search-small")?.shadowRoot?.children[1];
+		el.style.marginTop = "44px";
+	}
 };
 //#endregion
 //#region src/App2.vue
@@ -4481,6 +4485,7 @@ var App2_default = /* @__PURE__ */ defineComponent({
 	init() {
 		Page.instance.set_page_type();
 		this.setup_global_css();
+		RedditUtils.fix_reddit_search_location();
 		const root = this.setup_root();
 		this.mount_vue(root);
 	}

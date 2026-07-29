@@ -23,6 +23,8 @@ export class Main {
 
         this.setup_global_css();
 
+        RedditUtils.fix_reddit_search_location();
+
         //this.hide_reddit();
 
         const root = this.setup_root();

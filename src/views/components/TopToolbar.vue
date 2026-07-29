@@ -34,7 +34,7 @@ function toggle_favorite() {
 .toolbar-wrapper {
   display: flex;
   gap: 16px;
-  padding: 8px;
+  padding: 16px;
   background-color: black;
   color: white;
   font-size: 16px;
