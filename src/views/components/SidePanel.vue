@@ -41,7 +41,7 @@ const emit = defineEmits<{
   position: fixed;
   inset: 0;
   z-index: 9999;
-  top: 39px;
+  top: 63px;
 }
 
 .underlay {
