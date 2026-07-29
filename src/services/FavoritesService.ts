@@ -19,6 +19,13 @@ export class FavoritesService {
     }
 
     static save(favorites: Favorite[]) {
+
+        // reorder alpha
+        favorites = favorites.sort((a, b) => {
+            if (a.subreddit.toLowerCase() > b.subreddit.toLowerCase()) return 1;
+            if (a.subreddit.toLowerCase() < b.subreddit.toLowerCase()) return -1;
+            return 0;
+        });
         
         let favorites_str = JSON.stringify(favorites);
 
